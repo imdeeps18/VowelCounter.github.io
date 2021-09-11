@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VowelCount</title>
+</head>
+<style>
+    .container {
+        text-align: center;
+        align-items: center;
+        
+        width: 60vw;
+        height: auto;
+        margin: auto;
+        position: relative;
+        top: 15vw;
+    }
+
+    #msg {
+        width: 30vw;
+        color: black;
+        background-color: lightgreen;
+
+    }
+
+    #ans {
+        margin: 1vw;
+        color: blueviolet;
+        
+        padding: 1vw;
+        width: fit-content;
+        visibility: hidden;
+        text-align: center;
+        align-items: center;
+        margin: auto;
+        display: flex;
+    }
+</style>
+
+<body>
+    <div class="container">
+        <h1>Vowel Counter</h1>
+        <input type="text" id="msg" name="Input" placeholder="Input">
+<!--this is for the taking input as message/string -->
+
+        <button onclick="countVowel()" id="btn" type="submit">Search</button>
+        <!--this is the button -->
+        <div id="ans">
+            <!--this is just for having written output using the ans id for styling -->
+        </div>
+    </div>
+</body>
+<script>
+    function countVowel(params) {
+        var data = document.getElementById("msg").value;
+        //in data the complete string is stored 
+        var count = 0;
+        if (data.length == 0) {
+            //this is for the empty string 
+            //alert("Please enter the text to be counted! ");
+            document.getElementById("msg").style.border = "2px solid red";
+            document.getElementById("ans").innerHTML = "Invalid !";
+            // document.getElementById("ans").style.visibility = "visible";
+            document.getElementById("ans").style.color = "red";
+        }
+        else {
+            //here counting of the string takes place 
+            for (i = 0; i < data.length; i++) {
+                if (data[i] == 'a' || data[i] == 'e' || data[i] == 'i' || data[i] == 'o' || data[i] == 'u' || data[i] == 'A' || data[i] == 'E' || data[i] == 'I' || data[i] == 'O' || data[i] == 'U')
+                    count++;
+            }
+            //the same output will be given out 
+            document.getElementById("ans").innerHTML = "The number of vowel is :  " + count;
+            // document.getElementById("ans").style.visibility = "visible";
+             document.getElementById("ans").style.color="blue";
+        }
+        document.getElementById("ans").style.visibility = "visible";
+        document.getElementById("ans").style.fontSize = "20px";
+    }
+</script>
+
+</html>
